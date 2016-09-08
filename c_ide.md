@@ -1,5 +1,5 @@
 
-## 常用C/C++的IDE（集成开发环境），**只是一部分**
+## 常用C/C++的IDE（集成开发环境）
 - [Visual C++]
 - [Visual Studio]  
 - [Code::Blocks]
@@ -20,3 +20,4 @@
 [Qt]: <https://www.qt.io/>
 [C Free]: <www.programarts.com/cfree_en/download.htm>
 
+**以上只是一部分，大家可以补充**
