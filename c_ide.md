@@ -1,5 +1,5 @@
 
-## 常用C/C++的IDE（集成开发环境），*只是一部分*
+## 常用C/C++的IDE（集成开发环境），**只是一部分**
 - [Visual C++]
 - [Visual Studio]  
 - [Code::Blocks]
