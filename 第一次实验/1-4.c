@@ -41,15 +41,15 @@ int main()
 	if(d1 > 90 && d1 < 97)
 	    d1 = d1 - 26;
 	else if(d1 > 122)
-		d1 = d1-26;
+		d1 = d1 - 26;
 
 	if(d2 > 90 && d2 < 97)
 	    d2 = d2 - 26;
 	else if(d2 > 122)
-		d2 = d2 - 26;	
-
+		d2 = d2 - 26;
+	
 	if(d3 > 90 && d3 < 97)
-	    d3 = d3 - 26;
+    	d3 = d3 - 26;
 	else if(d3 > 122)
 		d3 = d3 - 26;
 	
@@ -62,6 +62,12 @@ int main()
 		d5 = d5 - 26;
 	else if(d5 > 122)
 		d5 = d5 - 26;	
+
+	if(d5 > 90 && d5 < 97)
+	    d5 = d5 - 26;
+	else if(d5 > 122)
+	   d5 = d5 - 26;	
+
 	
 	putchar(d1);
 	putchar(d2);
