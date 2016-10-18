@@ -3,3 +3,25 @@
 输入：2 输出：1
 输入：5 输出：5
 */
+#include <stdio.h>
+ 
+int main()
+{
+ 
+    int f1=1,f2=1,f3;
+    int i,n;
+    scanf("%d",&n);
+    if(n<=2)
+   		f3=1;
+    else
+   {
+	    for(i=1;i<=n-2;i++)
+	    {
+	        f3 = f1+f2;
+	        f1 = f2;
+	        f2 = f3;
+	    }
+    }
+    printf("%d",f3);
+    return 0;
+}

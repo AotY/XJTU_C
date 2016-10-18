@@ -9,3 +9,28 @@
 输入：69 输出：D
 输入：32.5 输出：E
 */
+#include <stdio.h>
+int main()
+{
+       float c,s;
+       int d;
+       scanf("%f",&s);
+       c = s/10;
+       d = floor(c);
+        switch(d)
+        {
+           case 0:
+           case 1:
+           case 2:
+           case 3:
+           case 4:
+           case 5:putchar('E');break;
+           case 6:putchar('D');break;
+           case 7:putchar('C');break;
+           case 8:putchar('B');break;
+           case 9:putchar('A');break;
+           case 10:putchar('A');break;
+        }
+	return 0;
+ 
+}

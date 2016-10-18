@@ -9,3 +9,18 @@
 
 输入：Q 输出：quit
 */
+# include <stdio.h>
+int main()
+{
+    char word;
+    scanf("%c",&word);
+    switch(word)
+    {
+        case'I':printf("input");break;
+        case'O':printf("output");break;
+        case'S':printf("sort");break;
+        case'Q':printf("quit");break;
+        default:printf("enter data error!");break;
+    }
+return 0;
+}

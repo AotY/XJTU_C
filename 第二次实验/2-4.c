@@ -14,3 +14,32 @@
 输入：156890 输出：14266.75
 输入：234000 输出：19200.00
 */
+#include <stdio.h>
+int main()
+{
+	 float I;
+	 int R;
+	 scanf("%f",&I);
+	 R=I/100000;
+	 switch(R)
+	 {
+	     case 0:printf("%5.2f",I*0.1);
+	     		break;
+	     case 1:printf("%5.2f",(I-100000)*0.075+10000);
+	     		break;
+	     case 2:
+	     case 3:printf("%5.2f",10000+7500+(I-200000)*0.05);
+	     		break;
+	     case 4:
+	     case 5:printf("%5.2f",10000+7500+10000+(I-400000)*0.03);
+	     		break;
+	     case 6:
+	     case 7:
+	     case 8:
+	     case 9:printf("%5.2f",10000+7500+10000+6000+(I-600000)*0.015);
+	     		break;
+	     default:printf("%5.2f",10000+7500+10000+6000+6000+(I-1000000)*0.01);
+	     		break;
+	 }
+	 return 0;
+}
