@@ -1,0 +1,35 @@
+1简介
+GCC 的意思也只是 GNU C Compiler 而已。经过了这么多年的发展，GCC 已经不仅仅能支持 C 语言；它现在还支持 Ada 语言、C++ 语言、Java 语言、Objective C 语言、Pascal 语言、COBOL语言，以及支持函数式编程和逻辑编程的 Mercury 语言，等等。而 GCC 也不再单只是 GNU C 语言编译器的意思了，而是变成了 GNU Compiler Collection 也即是 GNU 编译器家族的意思了。另一方面，说到 GCC 对于操作系统平台及硬件平台支持，概括起来就是一句话：无所不在。
+
+2这个程序，一步到位的编译指令是:
+
+gcc test.c -o test
+
+2.1预处理
+gcc -E test.c -o test.i 或 gcc -E test.c
+
+2.2编译为汇编代码(Compilation)
+预处理之后，可直接对生成的test.i文件编译，生成汇编代码：
+gcc -S test.i -o test.s
+
+2.3汇编(Assembly)
+对于上一小节中生成的汇编代码文件test.s，gas汇编器负责将其编译为目标文件，如下：
+gcc -c test.s -o test.o
+
+2.4连接(Linking)
+gcc连接器是gas提供的，负责将程序的目标文件与所需的所有附加的目标文件连接起来，最终生成可执行文件。附加的目标文件包括静态连接库和动态连接库。
+对于上一小节中生成的test.o，将其与Ｃ标准输入输出库进行连接，最终生成程序test
+gcc test.o -o test
+
+
+3多个程序文件的编译
+
+通常整个程序是由多个源文件组成的，相应地也就形成了多个编译单元，使用GCC能够很好地管理这些编译单元。假设有一个由test1.c和 test2.c两个源文件组成的程序，为了对它们进行编译，并最终生成可执行程序test，可以使用下面这条命令：
+
+gcc test1.c test2.c -o test
+
+如果同时处理的文件不止一个，GCC仍然会按照预处理、编译和链接的过程依次进行。如果深究起来，上面这条命令大致相当于依次执行如下三条命令：
+
+gcc -c test1.c -o test1.o
+gcc -c test2.c -o test2.o
+gcc test1.o test2.o -o test
