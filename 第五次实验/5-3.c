@@ -1,5 +1,9 @@
 /*
-3.实现一个函数判断year是不是润年。
+5.3 实现一个函数判断year是不是润年（输出yes或者no）
+输入：
+2000
+输出：
+yes
 */
 #include <stdio.h>
 int year(int n)
