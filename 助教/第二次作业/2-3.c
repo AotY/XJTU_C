@@ -27,8 +27,7 @@ int main()
         s = s + x / y;
         m = y;
         y = x;
-        x = x + m;
-         
+        x = x + m;  
         i = i + 1;
          
     }

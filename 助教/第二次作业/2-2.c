@@ -14,15 +14,15 @@
  
 int main()
 {
-    int a,n,i,p;
-    int ans=0;
+    int a, n, i, p;
+    int ans = 0;
     scanf("%d%d",&a,&n);
-    p=a;
+    p = a;
     for(i=0;i<n;i++)
     {
-        ans+=p;
-        p=10*p+a;
+        ans += p;
+        p = 10*p + a;
     }
-    printf("%d",ans);
+    printf("%d", ans);
     return 0;
 }
