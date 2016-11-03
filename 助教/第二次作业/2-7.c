@@ -1,29 +1,29 @@
 /*
-输入3个整数，求最大公约数和最小公倍数。
-输入：3个整数
-输出：最大公约数和最小公倍数，空格分隔
-例子：
-2 5 8
-1 40
+猴子在第一天摘下若干个桃子，当即就吃了一半，又感觉不过瘾，于是就多吃了一个。以后每天如此，到第N天想吃时，发现就只剩下了一个桃子。请编程计算第一天猴子摘的桃子个数.N由用户输入。
+
+输入：
+整数N
+输出：
+桃子个数
+
+样例：
+10
+1534
 */
 
 #include <stdio.h>
 int main()
 {
-    int a; 
-    int b; 
-    int c;
-    
-    scanf("%d%d%d", &a,&b,&c);
-    int max = a;
-    int min = a;
-    while (a%min || b%min || c%min)
-        min--;
-    while (max%a || max%b || max%c)
-        max++;
-    printf("%d %d", min, max);
+    int N;
+    scanf("%d", &N);
+    int s =1;
+    int i =1;
  
- 
- 
+    while (i <N)
+    {
+        s= 2*s+ 2;
+        i = i + 1;
+    }
+    printf("%d",s);
     return 0;
 }
