@@ -1,29 +1,27 @@
 /*
-输入3个整数，求最大公约数和最小公倍数。
-输入：3个整数
-输出：最大公约数和最小公倍数，空格分隔
-例子：
-2 5 8
-1 40
+在屏幕上输入多个正整数，将输入的正整数累加，直到输入为负数或0时，停止读取数据，计算读取的正整数的和
+输入：多个整数，空格分隔；
+输出：和
+样例：
+1 2 3 4 5 -1
+15
 */
 
 #include <stdio.h>
 int main()
 {
-    int a; 
-    int b; 
-    int c;
-    
-    scanf("%d%d%d", &a,&b,&c);
-    int max = a;
-    int min = a;
-    while (a%min || b%min || c%min)
-        min--;
-    while (max%a || max%b || max%c)
-        max++;
-    printf("%d %d", min, max);
+    int a;
  
- 
- 
+    scanf("%d",&a);
+    int s = 0;
+    while (a>0)
+    {
+        s = s + a;
+        scanf("%d",& a);
+    }
+     
+     
+    printf("%d ",s);
     return 0;
+ 
 }
