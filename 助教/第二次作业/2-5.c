@@ -17,7 +17,7 @@ int main()
     while (a>0)
     {
         s = s + a;
-        scanf("%d",& a);
+        scanf("%d",&a);
     }
      
      
