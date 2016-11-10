@@ -1,104 +1,84 @@
 /*
 
-定义一个描述学生信息的结构体，包含学生学号、姓名、班级、三门课程成绩和总成绩（学号等数据类型的要求同前），用函数实现三个学生信息的录入和按照学生三门课程总成绩排序。在主函数中调用这两个函数，按照学生总成绩从小到大输出各项信息。
-
-程序运行结果如下：
-
-1001
-
-11
-
-zhang
-
-99.5
-
-88.5
-
-89.5
-
-277.5
-
-1002
-
-22
-
-li
-
-77.9
-
-56.5
-
-87.5
-
-221.9
-
-1003
-
-11
-
-wang
-
-92.5
-
-99.0
-
-60.5
-
-252.0
-
-（回车后确认后输出以下结果）
-
-1002,22,li,77.9,56.5,87.5,221.9
-
-1003,11,wang,92.5,99.0,60.5,252.0  
-
-1001,11,zhang,99.5,88.5,89.5,277.5
-
-（注意：带下划线部分为输入）
-
+6.1 编写一个函数，从传入的一个字符串中找出一个最长的一个子字符串， 输出该子字符串。
+输入：
+Life is not a problem to be solved but a reality to be experienced
+输出：
+experienced
 */
-#include<stdio.h>
+
+
+//
+//  main.c
+//  Hello
+//
+//  Created by Leon Tao on 16/10/31.
+//  Copyright © 2016年 Leon Tao. All rights reserved.
+//
+
+#include <stdio.h>
 #include <string.h>
-struct Student
-{
-    int xh;
-    int bj;
-    char name[30];
-    float fs1;
-    float fs2;
-    float fs3;
-    float fs4;
-}student[3],temp;
-void put()
+
+
+void init_str(char *c, int len)
 {
     int i;
-    for (i=0;i<3;i++)
-    scanf("%d%d%s%f%f%f%f",&student[i].xh,&student[i].bj,student[i].name,&student[i].fs1,&student[i].fs2,&student[i].fs3,&student[i].fs4);
-     
-}
-void sort()
-{
-    int i,j;
-    for (i=0;i<2;i++)
-        for (j=i+1;j<3;j++)
-    if(student[i].fs4>student[j].fs4)
+    for(i = 0; i < len; i++)
     {
-        temp=student[i];
-        student[i]=student[j];
-        student[j]=temp;
+        c[i] = '\0';
     }
 }
-void output()
+
+int main(int argc, const char * argv[])
 {
+    char str[101];
+    char l_str[20];
+    
     int i;
-    for (i=0;i<3;i++)
-    printf("%d,%d,%s,%.1f,%.1f,%.1f,%.1f\n",student[i].xh,student[i].bj,student[i].name,student[i].fs1,student[i].fs2,student[i].fs3,student[i].fs4);
-}
-int main()
-{
-    put();
-    sort();
-    output();
+    int cur_l = 0;
+    int max_l = 0;
+    int last_space_index = -1;
+//    init_str(l_str, 20);
+    init_str(str, 100);
+//    scanf("%s", str);
+    gets(str);
+    unsigned long len = strlen(str);
+    str[len] = ' ';
+//    str[len]
+    // 找到最长
+    for (i = 0; str[i] != '\0'; i++)
+    {
+//        cur_l ++ ;
+        if (str[i] == ' ')
+        {
+            if (cur_l > max_l)
+            {
+                /*
+                 char subbuff[5];
+                 memcpy( subbuff, &buff[10], 4 );
+                 subbuff[4] = '\0';
+                 */
+                // l_str = {'',};
+                init_str(l_str, 20);
+                max_l = cur_l;
+                memcpy(l_str, &str[last_space_index + 1], cur_l);
+                l_str[cur_l + 1] = '\0';
+                // last_space_index = i;
+//                last_space_index = i;
+            }
+            last_space_index = i;
+            cur_l = 0;
+        }
+        else
+        {
+            cur_l ++;
+        }
+    }
+    for(i = 0 ; l_str[i] != '\0'; ++i)
+    {
+        printf("%c", l_str[i]);
+    }
+    // printf("\n");
     return 0;
 }
-关闭窗口
+
