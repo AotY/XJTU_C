@@ -1,0 +1,34 @@
+#include <stdio.h>
+/*
+ void
+//返回值类型 函数名(形参s)
+{
+	
+	return 返回值类型的变量；
+}
+
+*/
+
+int cj(int n)
+{
+	int result = 1;
+	printf("size of result: %d\n", sizeof(result));
+	//int i;
+	for (int i = 1; i <= n; i++)
+	{
+		result *= i;
+	}
+		
+	return result;
+}
+
+
+
+int main()
+{
+	int N;
+	scanf_s("%d", &N);
+	int result = cj(N);//
+	printf("%d\n", result);
+	return 0;
+}
