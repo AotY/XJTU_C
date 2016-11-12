@@ -18,7 +18,7 @@ int main(int argc, char const *argv[])
 	
 	int capital = 0, lower = 0, digit = 0, other = 0, total = 0;
 	char str[N];
-	fgets(str, N, stdin);
+	fgets(str, N, stdin); // 更安全的函数
     // scanf("%s\n", str);
     printf("%s\n", str);
     // char c = ' ';
