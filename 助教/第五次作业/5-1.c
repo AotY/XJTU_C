@@ -61,16 +61,6 @@ int solveGameBoy(int gameboy[][6], int numberIndex[10], int N)
 int main()
 {
 	int N; // 1<=N<=100
-	// int i,
-	int    *ip;    /* 一个整型的指针 */
-	double *dp;    /* 一个 double 型的指针 */
-	float  *fp;    /* 一个浮点型的指针 */
-	char   *ch;    /* 一个字符型的指针 */
-
-	printf("%d\n", sizeof(ip));
-	printf("%d\n", sizeof(dp));
-	printf("%d\n", sizeof(fp));
-	printf("%d\n", sizeof(ch));
 	
 	int A, B, C;
 	while(scanf("%d", &N))
