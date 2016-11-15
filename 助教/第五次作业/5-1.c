@@ -26,7 +26,6 @@ gameboy猜这个四位数为A，然后计算机回答猜对了B个数字，其�
 如果根据这段对话能确定这个四位数，则输出这个四位数，若不能，则输出"Not sure"。
 例子：
 6
-
 4815 2 1
 5716 1 0
 7842 1 0
@@ -42,84 +41,189 @@ gameboy猜这个四位数为A，然后计算机回答猜对了B个数字，其�
 输出：
 3585
 Not sure
+题目是让计算机猜数字，你是给出条件的一方，弄清楚这点，就好写了，
+四位数，从1000到9999范围并不大，那就用暴搜了，外界所给条件我正好用来筛数，留下符合的，有
+一项的话就是结果，多项就是条件不足，没有就是没有符合要求的。
+
+
+枚举法，把猜测的数字建立一个结构体，方便后续的比较，
+枚举每一个四位数，和猜测的数字进行比较，求出共有的数字个数
+和共有数字个数、位置都相等的数字个数，和题目中给出的这两个数值相比，
+如果都相等，则说明符合条件。
+
+起初实在想不出解题思路,后来看到网上的枚举思路才顿悟.
+因为一共说了n句话,又是一个四位数,我们根据这n句话,来查找1000-9999所有数,当有且只有1个数满足
+这n句话时,才可以确定,关键在于如何判断是否满足.需要判断正确的数字,正确的位置.
+1.正确的位置比较好判断:只要判断对应位置的数是否相等.
+2.正确的数字:先确定判断输出的数的第几个数字,然后再新的数里面查找,一旦找到就标记一下,新数的位置,
+防止下次判断的时候重复.
+
 */
 
 
 
 #include <stdio.h>
-
-
-int solveGameBoy(int gameboy[][6], int numberIndex[10], int N)
+#include <string.h>
+#include <stdlib.h>
+struct gameBoy
 {
-	int result = 0;
-	//找到出现位置准确最多的一行
+    int numbers[4];
+    int rightNumber;
+    int rightPosition;
+};
 
+gameBoy games[100];
+int result;
+int curNumbers[4];
 
-	return result;
+void convertNumber(int n, int *numbers)
+{
+    int i = 3;
+    while(n != 0)
+    {
+        numbers[i--] = n % 10;
+        n /= 10;
+    }
 }
+
+int solveGameBoy(int N)
+{
+    int result = -1;
+    //找到出现位置准确最多的一行
+    int isSuccess;
+    int matchNumbers = 0; //符合的数
+    for (int i = 1000; i < 10000; i++)
+    {
+        //转换
+        convertNumber(i, curNumbers);
+        isSuccess = 1;
+        //比较当前的数是否满足条件
+        for(int j = 0; j < N; j++)
+        {
+            
+            // games[j].numbers
+            // games[j].rightNumber
+            // games[j].rightPosition
+            //首先判断是否包含准确个数
+            int b = 0;
+            int flag;
+            int index[4] = {-1, -1, -1, -1};
+            for(int m = 0; m < 4; m++) // 3585
+            {
+                
+                for(int n = 0; n < 4; n++)
+                {
+                    if(curNumbers[m] == games[j].numbers[n]) //如果找到相等位置，记录
+                    {
+                        //判断该位置是否以前匹配过
+                        flag = 0;
+                        for(int o = 0; o < 4; o++)
+                        {
+                            if (index[o] != -1 && n == index[o]) // 如果找过该位置，则继续找
+                            {
+                                flag = 1; //标记已经找过
+                                break;
+                            }
+                        }
+                        if (flag == 1)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            index[b++] = n;  //准确位置加1
+                            break;
+                        }
+                    }
+                }
+                
+            }
+            if( b != games[j].rightNumber)
+            {
+                isSuccess = 0;
+                break; //搜索下一个数
+            }
+            
+            //首先判断位置准确
+//            int match;
+            int c = 0;
+//            int curN;  //当前数字
+//            int findIndex;
+//            int findIndex2;
+            for(int m = 0; m < 4; m++) // 3858
+            {
+//                findIndex = m;
+                if (curNumbers[m] == games[j].numbers[m])
+                {
+                    c ++ ;
+                }
+                    
+//                    match = 0;
+//                    findIndex2 = k;
+//                    curN = curNumbers[findIndex];
+//                    while (games[j].numbers[findIndex2] == curN)
+//                    {
+//                        match ++ ;
+//                        findIndex2 ++;
+//                        findIndex ++ ;
+//                        if (findIndex2 == 4 || findIndex == 4)
+//                            break;
+//                        curN = curNumbers[findIndex];
+//                    }
+//                    if(match > c)
+//                        c = match;
+//                }
+            }
+            if( c != games[j].rightPosition)
+            {
+                isSuccess = 0;
+                break; //搜索下一个数
+            }
+        }
+        
+        if (isSuccess == 1)
+        {
+            matchNumbers ++ ;
+            result =  i;
+        }
+        
+    }
+    if( matchNumbers == 1)
+        return result;
+    return -1;
+}
+
 
 int main()
 {
-	int N; // 1<=N<=100
-	
-	int A, B, C;
-	while(scanf("%d", &N))
-	{
-		int numberIndex[10] = {0}; //记录0-9数字是否出现
-		int gameboy[101][6] = {0};
-		if (N == 0)
-		{
-			break;
-		}
-		else
-		{
-			for (int i = 1; i <= N; i++)
-			{
-				scanf("%d %d %d", &A, &B, &C);
-				//分解
-				gameboy[i][3] = A % 10;
-				numberIndex[A % 10] = 1;
-				A /= 10;
-
-				gameboy[i][2] = A % 10 ;
-				numberIndex[A % 10] = 1;
-				A /= 10;
-
-				gameboy[i][1] = A % 10;
-				numberIndex[A % 10] = 1;
-				A /= 10;
-
-				gameboy[i][0] = A;
-				numberIndex[A % 10] = 1;
-				
-				gameboy[i][4] = B; //出现几次
-				gameboy[i][5] = C; //位置准确几个
-			}
-			//现在有了数据，怎么处理呢？
-			int result = solveGameBoy(gameboy, numberIndex, N);
-			if(result == 0)
-			{
-				printf("Not sure\n");
-			}
-			else
-			{
-				printf("%d\n", result);
-			}
-			
-			//打印数组
-			// for (int i = 1; i <= N; i++)
-			// {
-			// 	for (int j = 0; j < 6; ++j)
-			// 	{
-			// 		printf("%d ", gameboy[i][j]);
-			// 	}
-			// 	printf("\n");
-			// }
-
-		}
-	}
-
-
-	return 0;
+    int N; // 1<=N<=100
+//    int A, B, C;
+    int number;
+    while(scanf("%d", &N), N)
+    {
+        
+        for (int i = 0; i < N; i++)
+        {
+            scanf("%d %d %d", &number, &games[i].rightNumber, &games[i].rightPosition);
+            //分解
+            convertNumber(number, games[i].numbers);
+        }
+        //现在有了数据，怎么处理呢？
+        int result = solveGameBoy(N);
+        if (result == -1)
+        {
+            puts("Not sure");
+        }
+        else
+        {
+            printf("%d\n", result);
+        }
+        
+    }
+    
+    return 0;
 }
+
+
+
 

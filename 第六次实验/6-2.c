@@ -108,12 +108,10 @@ void search(int map[MAX][MAX], int row, int col, int n)
             }
         }
     }
-    //    return ways;
 }
 void empress_problem(int map[MAX][MAX], int n)
 {
     int i;
-    //    int ways = 0;
     int init_raw = 1;
     for(i = 1 ; i <= n ; i++)
     {
@@ -122,29 +120,16 @@ void empress_problem(int map[MAX][MAX], int n)
         // map[i][j] = 1; // 标记
         map[init_raw][i] = 1;
         search(map, init_raw + 1, i, n); //从下一行开始搜索
-        //        ways += search(map, 1, i, n, ways); //从下一行开始搜索
     }
-    //    return ways;
 }
 
 int main()
 {
-    //    int n, i;
-    //    int answer[MAX];
     int map[MAX][MAX];
     init_map(map, 0, MAX-1);
     int n ;
-    //    int ways = 0;
-    //    for(i = 1; i < MAX; i++)
-    //    {
-    //        // tmp = 0;
-    //        empress_problem(map, i);
-    //        answer[n] = ways;
-    //    }
     scanf("%d", &n);
     empress_problem(map, n);
-    //    scanf("%d", &n);
-    //    printf("%d\n", answer[n]);
     printf("%d\n", ways);
     return 0;
 }
