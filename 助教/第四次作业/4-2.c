@@ -32,28 +32,24 @@ int main(int argc, char const *argv[])
     int i;
     for(i = 0; str[i] != '\0'; i++)
     {
-        // int value = (int)str[i];
+       
         
-        str[i] += 3;
-        printf("%c\n", str[i]);
-        if(str[i] > 122)
+        str[i] += 3; //后移3位
+        if(str[i] > 122) //如果大于z
         {
-        	// printf("122\n");
             str[i] -= 26;
         }
-        else if(str[i] > 90 && str[i] < 97)
+        else if(str[i] > 90 && str[i] < 97) //如果大于Z 小于 a
         {
-            // printf("90 97\n");
             str[i] -= 26;
         }
-        if(str[i] < 91)
+
+        if(str[i] < 91) //如果是大写
         {
-        	// printf("91\n");
             str[i] += 32;
         }
-        else if(str[i] > 96 && str[i] < 123)
+        else if(str[i] > 96 && str[i] < 123)//如果是小写
         {
-        	// printf("96 123\n");
             str[i] -= 32;
         }
     }

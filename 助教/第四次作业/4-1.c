@@ -18,9 +18,8 @@ I am a student*m
 int main(int argc, char const *argv[])
 {
 	
-	char str[N];
-	char c;
-
+	char str[N];//字符串
+	char c; //查找的字符
 	int i, len, index;
 	i = 0;
 	len = 0;
@@ -34,7 +33,6 @@ int main(int argc, char const *argv[])
 			str[i++] = c;
 		}
 	}while(c != '*');
-
 	c = getchar();
 
 	for(i = 0; i <len; i++)
@@ -55,4 +53,5 @@ int main(int argc, char const *argv[])
 
 	return 0;
 }
+
 
