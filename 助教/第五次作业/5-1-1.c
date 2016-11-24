@@ -35,6 +35,7 @@ void bubbleSort(int *arr, int len)
     }
 }
 
+
 //打印数组
 void printArr(int *arr, int len)
 {
@@ -70,26 +71,26 @@ int main(int argc, char const *argv[])
     int value;
     int len = 0;
     int n;
-    scanf("%d", &n);
-    for (int i = 0; i < n; ++i)
+    scanf("%d", &n); //输入n,表示下面一个数组要输入多少元素
+    for (int i = 0; i < n; ++i) //输入第一个数组元素
     {
         scanf("%d", &value);
-        arr1[value] = 1 ; //出现位置的值加一
+        arr1[value] = 1 ; //出现位置的值等于一，这样可以去掉重复的元素
     }
     
-    for (int i = 0; i < n; ++i)
+    for (int i = 0; i < n; ++i)//输入第二	个数组元素
     {
         scanf("%d", &value);
-        arr2[value] = 1 ;//出现位置的值加一
+        arr2[value] = 1 ;//出现位置的值等于一，这样可以去掉重复的元素
     }
     
     for (int i = 0; i < N; i++) { // 将两个数字的值加起来， 因为要求的是非共有的元素。
-        arr1[i] = arr1[i] + arr2[i];
+        arr1[i] = arr1[i] + arr2[i]; //当出现位置大于1时，说明两个数组中共有
     }
 
     for (int i = 0; i < N; ++i) //从1开始，因为第0为是大小
     {
-        if(arr1[i] == 1) // 如果只出现一次
+        if(arr1[i] == 1) // 如果只出现一次，说明不是重复的元素
         {
             arr2[len] = i;
             len ++ ; //记录长度

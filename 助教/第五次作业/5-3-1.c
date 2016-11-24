@@ -25,6 +25,7 @@
 
 #define N 10001
 
+//分解一个数
 int convertNumber(int n, int *numbers)
 {
     int i = 0;
@@ -47,6 +48,8 @@ void initArr(int *arr, int len)
     
 }
 
+
+//获取一个数反转后的数，如： 15  返回 51
 int getRevSum(int n)
 {
     int an = 0;
@@ -64,7 +67,7 @@ int getRevSum(int n)
 }
 
 
-
+//调用上面的函数返回反转后的数， 在这里区分正负号
 int getRevValue(int n)
 {
     if ( n > 0) //大于零
@@ -78,6 +81,7 @@ int getRevValue(int n)
     
 }
 
+
 int main(int argc, char const *argv[])
 {
     int sum = 0;  // 求和
@@ -85,16 +89,18 @@ int main(int argc, char const *argv[])
     
     int x, y;
     scanf("%d %d", &sum, &sub);
+    //求解x, y
     x = (sum + sub) / 2;
     y = sum - x;
     
+
+    //求出小明眼中的数
     int ax = 0;
     int ay = 0;
-    //分解x, y ; 然后
-    
     ax = getRevValue(x);
     ay = getRevValue(y);
     
+    //打印结果
     printf("%d %d", ax + ay, ax - ay);
     
     return 0;
