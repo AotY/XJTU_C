@@ -10,6 +10,50 @@ n（空白字符串的长度）
 同时在下一行输出一个标尺（照样例原样输出即可）
 样例：
 1 
+
 + +
 +123456789A123456789B123456789C123456789D123456789E+
 */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define MAX 100
+
+
+char *mystrspc(char *string, int n)
+{
+	int i;
+	int len = 0;
+	string[len++] = '+';
+	for(i = 0 ; i < n; i++)
+	{
+		string[len++] = ' ';
+		string[len++] = '+';
+	}
+	return string;
+}
+
+
+void init_str(char *string, int len)
+{
+    int i;
+    for (i = 0; i < len; ++i)
+    {
+        string[i] = '\0';
+    }
+}
+
+int main()
+{
+	char *scale = "+123456789A123456789B123456789C123456789D123456789E+";
+	char string[MAX];
+	init_str(string, MAX);
+	int n;
+	scanf("%d", &n);
+	char *str = mystrspc(string, n);
+	printf("%s\n", str);
+	printf("%s", scale);
+	return 0;
+}

@@ -7,4 +7,13 @@
 1.1  2.2  3.3 
 6.6 7
 */
-n
+#include <stdio.h>
+int main()
+{
+     float a, b,c ;
+     scanf("%f%f%f", &a, &b, &c);
+     float d = a + b + c;  
+     int e = a + b + c + 0.5;
+     printf("%g %d", d,e);
+     return 0;
+ }

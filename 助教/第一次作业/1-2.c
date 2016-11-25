@@ -14,7 +14,7 @@ int main()
     char c1, c2, c3, c4;
     char y1, y2, y3, y4;
     scanf("%c%c%c%c", &c1, &c2, &c3,&c4);
-    if (c1 >= 'A'&&c1 <= 'Z')
+    if (c1 >= 'A' && c1 <= 'Z')
         y1 = ((c1 + 3) - 'A') % 26 + 'A';
     else
         y1 = ((c1 + 3) - 'a') % 26 + 'a';

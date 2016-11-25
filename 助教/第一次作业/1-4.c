@@ -8,15 +8,19 @@
 1:0:10
 
 */
-
 #include <stdio.h>
+ 
 int main()
 {
-    int a;
-	scanf("%d", &a);
-    int h = a / 3600;
-    int m = (a % 3600) / 60;
-    int s =( a % 3600) % 60;
-    printf("%d:%d:%d", h, m, s);
+    int a, b;
+    scanf("%d%d", &a,&b);
+    int c = a + b;
+    int d = a - b;
+    int e = a*b;
+    int  f = a / b;
+    printf("%d %d %d %d", c, d, e, f);
+ 
     return 0;
+ 
+ 
 }
