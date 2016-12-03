@@ -39,33 +39,21 @@ int main(int argc, const char * argv[])
     int cur_l = 0;
     int max_l = 0;
     int last_space_index = -1;
-//    init_str(l_str, 20);
     init_str(str, 100);
-//    scanf("%s", str);
     gets(str);
     unsigned long len = strlen(str);
     str[len] = ' ';
-//    str[len]
     // 找到最长
     for (i = 0; str[i] != '\0'; i++)
     {
-//        cur_l ++ ;
         if (str[i] == ' ')
         {
             if (cur_l > max_l)
             {
-                /*
-                 char subbuff[5];
-                 memcpy( subbuff, &buff[10], 4 );
-                 subbuff[4] = '\0';
-                 */
-                // l_str = {'',};
                 init_str(l_str, 20);
                 max_l = cur_l;
                 memcpy(l_str, &str[last_space_index + 1], cur_l);
                 l_str[cur_l + 1] = '\0';
-                // last_space_index = i;
-//                last_space_index = i;
             }
             last_space_index = i;
             cur_l = 0;
@@ -75,11 +63,11 @@ int main(int argc, const char * argv[])
             cur_l ++;
         }
     }
+
     for(i = 0 ; l_str[i] != '\0'; ++i)
     {
         printf("%c", l_str[i]);
     }
-    // printf("\n");
     return 0;
 }
 
