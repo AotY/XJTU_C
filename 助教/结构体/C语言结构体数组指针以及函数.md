@@ -23,7 +23,7 @@ struct stu{
 };
 int main(){
     printf("No\tName\t\tSex\tScore\t\n");
-    for(ps = boy; ps < boy+5; ps++)
+    for(ps = boy; ps < boy + 5; ps++)
         printf("%d\t%s\t%c\t%f\t\n", ps->num, ps->name, ps->sex, ps->score);
     return 0;
 }
