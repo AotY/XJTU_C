@@ -43,12 +43,6 @@ int main(int argc, char const *argv[])
 			break;
 		}
 	}
-
-	// for(i = 0; i < len; i++)
-	// {
-	// 	printf("%c ", str[i]);
-	// }
-	
 	printf("%d\n", index);
 
 	return 0;
