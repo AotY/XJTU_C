@@ -36,8 +36,7 @@ int main(int argc, char const *argv[])
 	{
 		if (isPrime(i) == 1)
 		{
-			// arr[index++] = i;
-			// printf("%d\n", i);
+			
 			index++;
 		}
 	}

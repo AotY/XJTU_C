@@ -1,12 +1,12 @@
 /*
-	
-假设电话号码本由人名（字符数组）和一个电话号码（字符数组）共2项组成，
-设计一个线性表，存入7个人的号码，提供2个删除函数，可以删除一条记录（根据位置，或者根据人名），
-提供插入函数以及其他常用函数。参照课本例8-2完成
-*/
+    
+ 假设电话号码本由人名（字符数组）和一个电话号码（字符数组）共2项组成，
+ 设计一个线性表，存入7个人的号码，提供2个删除函数，可以删除一条记录（根据位置，或者根据人名），
+ 提供插入函数以及其他常用函数。参照课本例8-2完成
+ */
 
 /*
-	
+    
  假设电话号码本由人名（字符数组）和一个电话号码（字符数组）共2项组成，
  设计一个线性表，存入7个人的号码，提供2个删除函数，可以删除一条记录（根据位置，或者根据人名），
  提供插入函数以及其他常用函数。参照课本例8-2完成
@@ -14,9 +14,9 @@
 
 #include <stdio.h>
 #include <string.h>
- #define MAX 3 //
+#define MAX 7 //
 
-int N = 3; // 初始化长度
+int N = 7; // 初始化长度
 
 struct Contacter
 {
@@ -28,12 +28,12 @@ struct Contacter
 int deleteByIndex(struct Contacter *cons, int index)
 {
     int flag = 1;
-    if(index < 1 && index > N)
+    if(index < 1 || index > N)
     {
         flag = 0;
         return 0;
     }
-
+    
     index = index - 1;
     int i = 0;
     
@@ -64,7 +64,7 @@ int deleteByName(struct Contacter *cons, char *name)
         flag = 0;
         return 0;
     }
-
+    
     temp = cons;
     for(i = index; i < N - 1; i++)
     {
@@ -95,7 +95,7 @@ int insertContacter(struct Contacter *cons, struct Contacter *con) //默认最�
 int insertContacterByIndex(struct Contacter *cons, struct Contacter *con, int index)
 {
     int flag = 1;
-    if(N == MAX || (index < 1 && index > N))
+    if(N == MAX || (index < 1 || index > N))
     {
         flag = 0;
         return 0;
@@ -156,14 +156,31 @@ int main()
         scanf("%s", cons[i].name);
         scanf("%s", cons[i].phoneNumber);
     }
+    /*
+     测试时的输入为：
+     leon1
+     123
+     leon2
+     123
+     leon3
+     123
+     leon4
+     123
+     leon5
+     123
+     leon6
+     123
+     leon7
+     123
+     */
     printContacters(cons);
-//    deleteByIndex(cons, 2);//通过index删除
-    char name[] = "leon";
+    //    deleteByIndex(cons, 2);//通过index删除
+    char name[] = "leon1";
     deleteByName(cons, name);//通过name删除
     printf("----\n");
     printContacters(cons);
     printf("----\n");
-    
+//    
 //    struct Contacter con;
 //    strcpy(con.name, "Qing");
 //    strcpy(con.phoneNumber, "123456");
@@ -176,9 +193,9 @@ int main()
     strcpy(con2.phoneNumber, "123456");
     insertContacterByIndex(cons, &con2, 2);
     printContacters(cons);
-   
+    
     printf("----\n");
-
+    
     struct Contacter con3;
     strcpy(con3.name, "Qing2");
     strcpy(con3.phoneNumber, "1234567");
@@ -192,14 +209,4 @@ int main()
 
 
 
-/*
-
-leo
-123
-leon
-1234
-TAO
-12345
-
-*/
 

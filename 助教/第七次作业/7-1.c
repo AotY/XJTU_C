@@ -92,17 +92,6 @@ int main()
     for (i = 0 ; i < n ; i++)
     {
     	scanf("%d", &arr[i]);
-        // if(nextChar != '\n')
-        // {
-        //     scanf("%d", &arr[i]);
-        //     len ++;
-            
-        // }
-        // else
-        // {
-        //     break;
-        // }
-        // nextChar = getchar();
     }
     scanf("%d", &insertNum);
     

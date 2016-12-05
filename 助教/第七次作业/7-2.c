@@ -8,14 +8,6 @@ experienced
 */
 
 
-//
-//  main.c
-//  Hello
-//
-//  Created by Leon Tao on 16/10/31.
-//  Copyright ? 2016年 Leon Tao. All rights reserved.
-//
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

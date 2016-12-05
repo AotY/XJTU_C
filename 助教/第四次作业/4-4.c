@@ -46,8 +46,7 @@ int main(int argc, char const *argv[])
     }
 	for(i = index-1; i >= 0; )
 	{
-		// printf("%d\n", i);
-
+		
 		if(outStr[i] == ',' && i == index-1)
 			printf("");
 		else
