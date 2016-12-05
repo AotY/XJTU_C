@@ -99,3 +99,23 @@ int main( )
 Value of TRUE : 1
 Value of FALSE : 0
 ```
+
+## Are typedef and #define the same in c?
+```
+#define is a preprocessor token: the compiler itself will never see it.
+typedef is a compiler token: the preprocessor does not care about it.
+
+You can use one or the other to achieve the same effect, but it's better to use the proper one for your needs
+
+#define MY_TYPE int
+typedef int My_Type;
+When things get "hairy", using the proper tool makes it right
+
+#define FX_TYPE void (*)(int)
+typedef void (*stdfx)(int);
+
+void fx_typ(stdfx fx); /* ok */
+void fx_def(FX_TYPE fx); /* error */
+
+来源： http://stackoverflow.com/questions/1666353/are-typedef-and-define-the-same-in-c
+```
